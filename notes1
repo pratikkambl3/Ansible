@@ -1,0 +1,25 @@
+230  ansible -m ping database
+  231  ansible -m user -a 'name=jack state=present uid=1010' all
+  232  ansible -m shell 'tail -2 /etc/passwd' all
+  233  ansible -m shell -a 'tail -2 /etc/passwd' all
+  234  ansi -m yum -a 'name=vsftd state=latest' all
+  235  ansible -m yum -a 'name=vsftd state=latest' all
+  236  ansible -m yum -a 'name=vsftpd state=latest' all
+  237  ansible -m shell 'rpm -a vsftpd' all
+  238  ansible -m shell -a 'rpm -a vsftpd' all
+  239  ansible -m shell -a 'rpm -q vsftpd' all
+  240  ansible -m shell -a 'yum remove vsftpd' all
+  241  ansible -m shell -a 'yum remove vsftpd -y' all
+  242  ansible -m shell -a 'rpm -q vsftpd' all
+  243  ansible -m yum -a 'name=postfix state=latest' all
+  244  ansible -m shell -a 'rpm -q postfix' all
+  245  ansible -m yum -a 'name=postfix state=absent' all
+  246  ansible -m shell -a 'rpm -q postfix' all
+
+
+
+
+
+
+
+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
