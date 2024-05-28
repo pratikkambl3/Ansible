@@ -1,0 +1,12 @@
+[application]
+172.31.44.16 
+[database]
+172.31.43.70
+[application:vars]
+grp=testing
+pkg=httpd
+[database:vars]
+grp=prod
+pkg=vsftpd
+
+

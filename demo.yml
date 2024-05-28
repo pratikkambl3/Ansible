@@ -1,0 +1,22 @@
+---
+ - name: First Playbook
+   hosts: all
+   tasks:
+     - name: first task
+       group:
+         name: devops
+         state: present
+     - name: second task
+       user:
+         name: shyam
+         state: present
+         group: devops
+ - name: Second Playbook
+   hosts: all
+   tasks:
+     - name: first task
+       file:
+         path: /tmp/sample
+         state: touch
+
+...

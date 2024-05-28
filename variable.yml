@@ -1,0 +1,18 @@
+---  
+ - name: Variable play
+   hosts: all
+   vars:
+     client: jackson
+     pkg: postfix 
+   tasks:
+     - name: create user {{ client }}
+       user: 
+          name: '{{ client }}'
+          state: present
+     - name: install package {{ pkg }}
+       yum:
+          name: '{{ pkg }}'
+          state: latest
+
+...
+

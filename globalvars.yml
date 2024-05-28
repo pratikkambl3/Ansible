@@ -1,0 +1,11 @@
+---
+ - name: Global varibles test play
+   hosts: all
+   vars:
+     grp: stagging
+   tasks:
+     - name: create {{ grp }} 
+       group:
+         name: '{{ grp }}'
+         state: present
+...           

@@ -1,0 +1,49 @@
+---
+ - name: Third Playbook
+   hosts: all
+   tasks:
+     - name: Yum install
+       yum:
+         name: vsftpd
+         state: latest
+     - name: start service vsfpd
+       service: 
+         name: vsftpd
+         state: started
+
+     - name: Postfix install
+       yum:
+         name: postfix
+         state: latest
+     - name: start service postfix
+       service:
+         name: postfix
+         state: started
+
+ - name: Fourth Playbook
+   hosts: all
+   tasks:
+     - name: Check if vsftpd is installed
+       shell: rpm -q vsftpd
+
+     - name: Check if postfix is installed
+       shell: rpm -q postfix
+
+ - name: Fifth Playbook
+   hosts: all
+   tasks: 
+     - name: Create File
+       file: 
+         path: /tmp/sample1
+         state: touch
+         mode: 0754
+         owner: shyam
+     - name: Create Directory
+       file:
+         path: /var/demo1
+         state: directory
+         mode: 0750
+         owner: user1
+         setype: httpd_sys_content_t  
+      
+

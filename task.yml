@@ -1,0 +1,27 @@
+---
+ - name: Task to perform
+   hosts: application
+   vars: 
+     group: sales
+     user: bon
+     app: vsftpd
+   tasks:
+     - name: Create Group {{ group }}
+       group:
+        name: '{{ group }}'
+        state: present
+     - name: Create User {{ user }}
+       user:
+        name: '{{ user }}'
+        state: present
+        group: '{{ group }}'
+     - name: Install package {{ app }}
+       yum:
+        name: '{{ app }}'
+        state: latest 
+     - name: Start service {{ app }}
+       service:
+        name: '{{ app }}'
+        state: started
+
+

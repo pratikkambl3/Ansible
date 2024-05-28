@@ -1,0 +1,13 @@
+---
+ - name: Test host vars
+   hosts: application
+   tasks:
+     - name: create group {{ grp }}
+       group:
+         name: '{{ grp }}'
+         state: present
+     - name: install package {{ pkg }}
+       yum:
+         name: '{{ pkg }}'
+         state: latest
+...

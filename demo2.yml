@@ -1,0 +1,25 @@
+---
+ - name: Sixth Playbook
+   hosts: all
+   tasks:
+     - name: Copy file
+       copy:
+         src: grras
+         dest: /tmp/grras1
+         mode: 0660
+         owner: user1
+     - name: Show content
+       shell: cat /tmp/grras1
+
+ - name: Seventh Playbook
+   hosts: all
+   tasks: 
+     - name: Edit existing file
+       lineinfile:
+          path: grras
+          line: "New file created for test"
+     - name: Synchronize edited file
+       synchronize:
+          src: grras
+          dest: /tmp/grras1
+...            

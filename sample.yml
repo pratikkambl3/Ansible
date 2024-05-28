@@ -1,0 +1,25 @@
+---
+ - name: First playbook to test modules
+   hosts: all
+   tasks:
+     - name: To install package
+       yum:
+         name: httpd
+         state: latest
+     - name: To manage services
+       service:
+         name: httpd
+         state: started
+     - name: To create index document
+       lineinfile:
+         path: /var/www/html/index.html
+         line: '<h1> Hello World <h1>'
+         create: yes
+         setype: httpd_sys_content_t
+     - name: Restart service
+       service:
+         name: httpd
+         state: restarted
+
+...
+

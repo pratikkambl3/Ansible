@@ -1,0 +1,30 @@
+---
+ - name: Test global vars
+   hosts: all
+   vars_files:
+     - globalvar.yml
+     - globalvar2.yml
+   tasks: 
+     - name: create group {{ group }}
+       group:
+         name: '{{ group }}'
+         state: present
+     - name: create user {{ user }}
+       user:
+         name: '{{ user }}'
+         state: present
+         group: '{{ group }}'
+     - name : install package {{ app }}
+       yum:
+         name: '{{ app }}'
+         state: absent
+     - name: enable postfix
+       service:
+         name : '{{ app }}'
+         enabled: no
+     - name: install {{ pkg }}
+       yum: 
+        name: '{{ pkg }}'
+        state: latest
+
+...

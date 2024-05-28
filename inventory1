@@ -1,0 +1,9 @@
+[application]
+172.31.44.16  grp=globe1
+[database]
+172.31.43.70  grp=globe2
+[application:vars]
+grp=globe3
+[database:vars]
+grp=globe4
+
