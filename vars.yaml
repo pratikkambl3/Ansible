@@ -2,8 +2,8 @@
  - name: Test global vars
    hosts: all
    vars_files:
-     - globalvar.yml
-     - globalvar2.yml
+     - vars1.yml
+     - vars2.yml
    tasks: 
      - name: create group {{ group }}
        group:
