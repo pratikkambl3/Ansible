@@ -1,0 +1,10 @@
+---
+- name: Testing playbook tocheck facts gathering with facts variable
+  hosts: all
+  gather_facts: no
+  tasks:
+    - name: print host infor
+      debug:
+        msg: Linux kernel version is {{ ansible_kernel }}
+...          
+

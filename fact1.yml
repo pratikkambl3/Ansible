@@ -1,0 +1,8 @@
+---
+ - name: Facts Testing
+   hosts: all
+   tasks:
+     - name: print host information
+       debug:
+         msg: The hostname is {{ ansible_hostname }}
+

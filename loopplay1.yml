@@ -1,0 +1,16 @@
+---
+ - name: Test Loop
+   hosts: all
+   tasks:
+     - name: create user with uid
+       user:
+         name: '{{ item.name }}'
+         uid: ' {{ item.uid }}'
+         state: present
+       loop:
+         - name: Om
+           uid: 2200
+         - name: akshay
+           uid: 2300
+         - name: rohan
+           uid: 2400

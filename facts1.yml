@@ -1,0 +1,8 @@
+---
+ - name: Facts 2 playbook
+   hosts: all
+   tasks:
+     - name: Print VM information
+       debug:
+         msg: The Ip address {{ ansible_default_ipv4.address }} of {{ ansible_fqdn }} having {{ ansible_architecture }} and OS {{ ansible_distribution }} and OS kernel is {{ ansible_kernel }} having ram         size {{ ansible_memtotal_mb }} bios versio {{ ansible_bios_version }}
+... 

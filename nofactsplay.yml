@@ -1,0 +1,9 @@
+---
+ - name: Testing no facts for normal playbook without having facts variable
+   hosts: all
+   gather_facts: no
+   tasks:
+     - name: Pring msg
+       debug:
+         msg: Hello world
+

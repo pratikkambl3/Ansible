@@ -1,0 +1,14 @@
+---
+ - name: Test Loop
+   hosts: all
+   tasks:
+     - name: create user
+       user:
+         name: '{{ item }}'
+         state: present
+       loop:
+          - nat1
+          - nat2
+          - nat3
+...
+         

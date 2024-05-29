@@ -1,0 +1,7 @@
+---
+ - name: Testing Facts2 scope
+   hosts: all
+   tasks:
+     - name: Pring VM information
+       debug:
+         msg: 
