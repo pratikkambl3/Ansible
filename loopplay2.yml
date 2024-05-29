@@ -1,0 +1,21 @@
+---
+ - name: Test Loop
+   hosts: all
+   tasks:
+     - name: create user with uid
+       user:
+         name: '{{ item.name }}'
+         uid: '{{ item.uid }}'
+         password: '{{ item.password }}'
+         state: present
+       loop:
+         - name: jetha
+           uid: 2600
+           password: "{{ 'redhat'| password_hash('sha256') }}"
+         - name: DrHathi
+           uid: 2700
+           password: "{{ 'redhat1'| password_hash('sha256') }}"
+         - name: Bhide
+           uid: 2800
+           password: "{{ 'redhat'| password_hash('sha256') }}"
+
