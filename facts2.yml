@@ -4,4 +4,5 @@
    tasks:
      - name: Pring VM information
        debug:
-         msg: 
+         msg: The Ip address {{ ansible_default_ipv4.address }} of {{ ansible_fqdn }} having {{ ansible_architecture }} and OS {{ ansible_distribution }}
+

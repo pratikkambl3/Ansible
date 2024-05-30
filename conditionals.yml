@@ -1,0 +1,10 @@
+---
+ - name: Test condition
+   hosts: all
+   tasks:
+     - name: Install package if architecture ie 64 bit
+       yum:
+         name: httpd
+         state: present
+       when: ansible_architecture == 'x86_64'
+

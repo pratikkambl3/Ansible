@@ -1,0 +1,16 @@
+---
+ - name: Test Loop
+   hosts: all
+   vars:
+     grp: 
+       - sales
+       - managment
+       - database
+   tasks:
+     - name: create multiple groups
+       group:
+         name: '{{ item }}'
+         state: present
+       loop: '{{ grp }}'
+...
+

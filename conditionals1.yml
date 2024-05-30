@@ -1,0 +1,16 @@
+---
+ - name: Test conditionals 2
+   hosts: all
+   vars:
+     os:
+       - RedHat
+       - Amazon
+       - Centos
+   tasks:
+     - name: instal package distribution from OS variable
+       yum:
+         name: httpd
+         state: latest
+       when: ansible_distribution in os
+...         
+
