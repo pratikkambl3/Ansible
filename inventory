@@ -1,7 +1,9 @@
 [application]
 172.31.44.16
+172.31.40.126
 [database]
 172.31.43.70
+ 172.31.43.202
 [servers:children]
 application
 database

@@ -1,0 +1,32 @@
+---
+ - name: Taks to create users
+   hosts: application
+   vars_files:
+       - user_list.yml
+       - user_password.yml
+   tasks:
+     - name: Create user
+       user:
+         name: "{{ item.name }}"
+         uid: "{{ item.uid }}"
+         password: "{{ mgr | password_hash('sha512') }}"
+         state: present
+       when: item.dest == "manager"    
+       loop: "{{ users }}"
+       
+ - name: Task to create another user
+   hosts: database
+   vars_files:
+       - user_list.yml
+       - user_password.yml
+   tasks:
+     - name: Create user
+       user:
+         name: "{{ item.name }}"
+         uid: "{{ item.uid }}"
+         password: "{{ mgr | password_hash('sha512') }}"
+         state: present
+       when: item.dest == "operation"
+       loop: "{{ users }}"
+ 
+

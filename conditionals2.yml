@@ -1,0 +1,8 @@
+---
+ - name: Test conditionals 2
+   hosts: all
+   tasks:
+     - name: check storage device availability
+       debug:
+         msg: The storage is available
+       when: ansible_devices.nvme1n1 is defined    

@@ -1,0 +1,7 @@
+users:
+  - name: raju
+    uid: 5501
+    dest: manager
+  - name: sham
+    uid: 6050
+    dest: operation

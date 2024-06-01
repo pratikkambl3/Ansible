@@ -1,0 +1,22 @@
+---
+ - name: Testing Handlers
+   hosts: all
+   tasks:
+     - name: install package
+       yum: 
+         name: httpd
+         state: present
+       notify: manage service
+     - name: create a file
+       lineinfile:
+         path: /tmp/store
+         line: Hello World
+         create: yes
+   handlers:
+     - name: manage service
+       service:
+         name : httpd
+         state: started
+         enabled: yes
+
+
